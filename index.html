@@ -22,23 +22,40 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        <!--base menu-->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link " href="#" onclick="navigate('users/home')">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#"onclick="navigate('users/login')">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#"onclick="navigate('users/register')">Registration</a>
+        </li>
+      <!-- user menu-->
+        <li class="nav-item">
+          <a class="nav-link " href="#"onclick="navigate('users/steps')">My steps</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link " href="#"onclick="navigate('users/profile')">My profile</a>
+        </li>
+        <!--admin menu-->
+        <li class="nav-item">
+          <a class="nav-link " href="#"onclick="navigate('admin/dashboard')">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="#"onclick="navigate('admin/users')">Manage users</a>
+        </li>
+
+        <!--user,admiun menu-->
+        <li class="nav-item">
+          <a class="nav-link " href="#"onclick="navigate('users/logout')">Logout</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-        <main></main>
+        <main id="content"></main>
         <footer>
             <p>Bajai SZC Türr István Technikum - 13.A szoftverfejlesztő</p>
         </footer>
