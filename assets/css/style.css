@@ -13,3 +13,16 @@ footer{
 main{
     padding: 20px;
 }
+h1{
+    color: var(--bs-primary);
+}
+h2{
+    color: var(--bs-secondary);
+}
+p{
+    text-align: justify;
+    line-height: 200%;
+}
+.logo{
+    font-size: 400%;
+}
