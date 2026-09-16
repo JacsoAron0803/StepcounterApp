@@ -26,3 +26,11 @@ p{
 .logo{
     font-size: 400%;
 }
+.themeSwitch{
+    position: fixed;
+    top:20px;
+    right: 20px;
+}
+.hide{
+    display: none;
+}
