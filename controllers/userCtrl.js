@@ -7,7 +7,7 @@ async function registration(){
 
     //meg kell szolitani a szervert
 
-   const response =await  fetch(`http://localhost:3000/admin/register`);
+   const response =await  fetch(`http://localhost:3000/admin/users`);
 
    const data = await response.json();
 
