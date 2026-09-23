@@ -4,7 +4,7 @@ async function getAllUsers(){
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({luid: 1}),
+        body: JSON.stringify({luid: 2}),
     });
     
 
