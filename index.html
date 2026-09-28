@@ -26,25 +26,35 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav" id="baseMenu">
         <!--base menu-->
         <li class="nav-item">
           <a class="nav-link " href="#" onclick="navigate('users/home')">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ">
           <a class="nav-link" href="#"onclick="navigate('users/login')">Login</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ">
           <a class="nav-link" href="#"onclick="navigate('users/register')">Registration</a>
         </li>
+      </ul>
+
       <!-- user menu-->
+      <ul class="navbar-nav" id="userMenu">
         <li class="nav-item">
           <a class="nav-link " href="#"onclick="navigate('users/steps')">My steps</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="#"onclick="navigate('users/profile')">My profile</a>
         </li>
-        <!--admin menu-->
+        <li class="nav-item">
+          <a class="nav-link " href="#"onclick="logout()">Logout</a>
+        </li>
+
+      </ul>
+      <!--admin menu-->
+      <ul class="navbar-nav" id="adminMenu">
+        
         <li class="nav-item">
           <a class="nav-link " href="#"onclick="navigate('admin/dashboard')">Dashboard</a>
         </li>
@@ -54,7 +64,7 @@
 
         <!--user,admiun menu-->
         <li class="nav-item">
-          <a class="nav-link " href="#"onclick="navigate('users/logout')">Logout</a>
+          <a class="nav-link " href="#"onclick="logout()">Logout</a>
         </li>
       </ul>
     </div>
@@ -66,6 +76,11 @@
         </footer>
     </div>
 
+     <!-- controllers-->
+      <script src="controllers/userCtrl.js"></script>
+      <script src="controllers/stepCtrl.js"></script>
+      <script src="controllers/messageCtrl.js"></script>
+      <script src="controllers/adminCtrl.js"></script>
 
     <!-- scriptek-->
      <script src="assets/js/bootstrap.min.js"></script>
@@ -73,11 +88,6 @@
      <script src="assets/js/moments.js"></script>
      <script src="assets/js/app.js"></script>
 
-     <!-- controllers-->
-      <script src="controllers/userCtrl.js"></script>
-      <script src="controllers/stepCtrl.js"></script>
-      <script src="controllers/messageCtrl.js"></script>
-      <script src="controllers/adminCtrl.js"></script>
 
 </body>
 </html>

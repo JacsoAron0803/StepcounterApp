@@ -54,3 +54,5 @@ function setThemeBtnState(){
 navigate('users/home');
 
 loadTheme();
+
+loginCheck();
