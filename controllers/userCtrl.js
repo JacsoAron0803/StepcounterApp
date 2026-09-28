@@ -120,7 +120,46 @@ function setMenuItems(param){
     }
 }
 
-function updateProfile(){}
+async function updateProfile() {
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+
+    const user = loadUser();
+
+    if (!user || !user.ID) {
+        showMessage('danger', 'ERROR', 'You are not logged in!');
+        return;
+    }
+
+    const uid = user.ID;
+
+    const data = {
+        username: name.value,
+        email: email.value,
+        luid: uid
+    };
+
+
+    const response = await fetch(`http://localhost:3000/users/${uid}`, {
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    const res = await response.json();
+
+    if (!response.ok) {
+        showMessage('danger', 'ERROR', res.error);
+    }
+    else {
+        showMessage('success', 'OK', res.message);
+
+        name.value = '';
+        email.value = '';
+    }
+}
 
 async function updatePasswd(){
     let oldpass = document.querySelector('#oldpass');
