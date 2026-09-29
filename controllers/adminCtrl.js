@@ -62,3 +62,51 @@ function addTableRow(user, index){
 
     userList.appendChild(tr);
   };
+  async function getStatistics(){
+    
+    let luid = loadUser().ID ? loadUser().ID : 0;
+    const response = await fetch(`http://localhost:3000/admin/statistics`,{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({luid}),
+    });
+    
+
+    if (response.status !== 200){
+        const res = await response.json();
+        showMessage('danger', 'ERROR', res.error);
+    }
+    else{
+        const data = await response.json();
+        drawDashboard(data);
+    }
+    
+  }
+  function drawDashboard(results){
+    let totalSteps = document.querySelector('#totalSteps')
+    let totalKm = document.querySelector('#totalKm')
+    let avgStep = document.querySelector('#avgSteps')
+    let avgKm = document.querySelector('#avgKm')
+
+    totalSteps.innerHTML = results[0][0].total + ' steps';
+    totalKm.innerHTML = Math.round((results[0][0].total  * 0.7 / 100)) + ' km';
+    avgStep.innerHTML = results[0][0].avg + ' km';
+    avgKm.innerHTML = Math.round((results[0][0].avg  * 0.7 / 100)) + ' km';
+
+    let topUsers = document.querySelector('#topUsers');
+
+    results[1].forEach((user, index) => {
+        let km = Math.round((user.steps * 0.7 / 100));
+        topUsers.innerHTML += `
+        <tr>
+        <td>${index + 1}.</td>
+        <td class="text-start">
+        ${user.name} <br> <small>${user.email}</small>
+        </td>
+        <td class="text-end">${user.steps} steps <br> <small>${km} km</small></td>
+        </tr>`;
+    }
+    )
+  }

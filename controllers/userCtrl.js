@@ -6,7 +6,8 @@ async function registration(){
     let confirm = document.querySelector('#confirm').value;
 
     //meg kell szolitani a szervert
-    
+    //KicsiKocsi02 --- ez a jelszo a teszt003-as felhasznalohoz
+    //Admin001 -- jelszo az adminhoz, email: admin2
     let user = {
         name, // name: name mivel ugyanaz a ket valtozo nev
         email,
@@ -121,8 +122,8 @@ function setMenuItems(param){
 }
 
 async function updateProfile() {
-    const name = document.querySelector('#name');
-    const email = document.querySelector('#email');
+    let name = document.querySelector('#name');
+    let email = document.querySelector('#email');
 
     const user = loadUser();
 
@@ -193,4 +194,9 @@ async function updatePasswd(){
         newpass.value = '';
         confirm.value = '';
     }
+}
+function getUserData(){
+    let user = loadUser();
+    document.querySelector('#name').value = user.name;
+    document.querySelector('#email').value = user.email;
 }

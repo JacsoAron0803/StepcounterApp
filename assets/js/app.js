@@ -13,6 +13,14 @@ async function navigate(page){
         getAllUsers();
         break;
     }
+    case 'users/profile':{
+        getUserData();
+        break;
+    }
+    case 'admin/dashboard':{
+        getStatistics();
+        break;
+    }
     }
 }
 
