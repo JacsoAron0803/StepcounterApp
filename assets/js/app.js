@@ -21,6 +21,10 @@ async function navigate(page){
         getStatistics();
         break;
     }
+    case 'users/steps':{
+        getUserSteps();
+        break;
+    }
     }
 }
 

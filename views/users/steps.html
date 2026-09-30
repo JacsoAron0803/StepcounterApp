@@ -1,7 +1,6 @@
 <h3>Manage my steps</h3>
 <hr>
 
-
 <div class="accordion mb-3" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
@@ -27,19 +26,7 @@
         </div>
     </div>
 
-<button type="button" class="btn btn-primary mb-3 col-2"><i class="bi bi-plus-lg"></i></i>&nbsp;&nbsp;Add</button>
-
-
-</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
+<button type="button" class="btn btn-primary mb-3 col-2" onclick="addSteps()"><i class="bi bi-plus-lg"></i></i>&nbsp;&nbsp;Add</button>
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
@@ -63,35 +50,12 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Date</th>
-      <th scope="col" class="text-end">Stepcount</th>
-      <th scope="col" class="text-end">Operation</th>
+      <th scope="col" class="text-end" >Stepcount</th>
+      <th scope="col"class="text-end">Operation</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>2026.09.15</td>
-      <td class="text-end">2356</td>
-      <td class="text-end">
-        <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>2026.09.12</td>
-      <td class="text-end">1312</td>
-      <td class="text-end">
-        <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>2026.09.11</td>
-      <td class="text-end">12321</td>
-      <td class="text-end">
-        <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i></button>
-      </td>
-    </tr>
+  <tbody id="stepsList">
+    
     <tr class="tfoot">
         <td colspan="2"><strong>Summary:</strong> </td>
         <td class="text-end"><strong>16008</strong> </td>
