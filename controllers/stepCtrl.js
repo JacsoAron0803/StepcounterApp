@@ -17,6 +17,7 @@ async function getUserSteps(){
         const results = await response.json();
         console.log(results);
         drawStepsTable(results);
+        initChart(results);
 
     }
 }
@@ -30,10 +31,6 @@ function drawStepsTable(results) {
 
     results.forEach((step, index) => {
 
-
-
-        console.log("STEP OBJECT:", step);
-    console.log("STEP ID:", step.ID);
         totalSteps += step.step_count;
 
         stepsList.innerHTML += `
@@ -111,10 +108,7 @@ async function addSteps() {
 }
 
 async function deleteSteps(stepID) {
-        let luid = loadUser().ID ? loadUser().ID : 0;
-
-
-
+    let luid = loadUser().ID ? loadUser().ID : 0;
 
     const response = await fetch(`http://localhost:3000/steps/${stepID}`, {
         method: 'DELETE',
@@ -138,3 +132,36 @@ async function deleteSteps(stepID) {
     getUserSteps();
 }
     
+function initChart(results){
+
+    let labels = [];
+    let datas = [];
+    results.sort((a, b) => new Date(a.date) - new Date(b.date));
+    results.forEach((result, index)=>{
+        labels.push(moment(result.date).format('YYYY-MM-DD'));
+        datas.push(result.step_count);
+    })
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: labels,
+        datasets: [{
+            label: '# of Steps',
+            data: datas,
+            borderWidth: 1,
+            pointStyle: 'circle',
+            pointRadius: 10,
+            pointHoverRadius: 15
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+}

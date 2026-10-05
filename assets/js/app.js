@@ -23,6 +23,7 @@ async function navigate(page){
     }
     case 'users/steps':{
         getUserSteps();
+      //  initChart();
         break;
     }
     }
