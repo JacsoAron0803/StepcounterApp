@@ -18,6 +18,7 @@ async function getUserSteps(){
         console.log(results);
         drawStepsTable(results);
         initChart(results);
+        initCalendar(results);
 
     }
 }
@@ -164,4 +165,37 @@ function initChart(results){
         }
         }
     });
+}
+
+function initCalendar(results){
+    var calendarEl = document.getElementById('calendar');
+    colorSheme = localStorage.getItem('SCT') || 'light';
+
+    let myEvents = results.map((result)=>{
+        return {
+            title: result.step_count + ' steps',
+            start: result.date,
+        }
+    })
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        colorScheme : colorSheme,
+      initialDate: new Date(),
+      initialView: 'dayGridMonth',
+      nowIndicator: true,
+      headerToolbar: {
+        left: 'prevYear,prev,today,next,nextYear',
+        center: 'title',
+        right: 'multiMonthYear,dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      selectable: false,
+      selectMirror: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: myEvents
+      
+    });
+ 
+    calendar.render();
 }

@@ -41,6 +41,9 @@ darkModeBtn.addEventListener('click', ()=>{
 })
 function setTheme(theme){
 document.documentElement.setAttribute('data-bs-theme', theme);
+document.body.setAttribute('data-color-scheme', theme)
+
+
 saveTheme(theme);
 setThemeBtnState();
 }
